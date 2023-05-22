@@ -1,8 +1,10 @@
 
 declare module "cytoscape-react" {
+
+    type layoutName = 'null' | 'random' | 'preset' | 'grid' | 'cose' | 'circle' | 'concentric' | 'breadthfirst';
     interface GraphProps {
         cyParams?: cytoscape.CytoscapeOptions;
-        layoutParams: Record<string, string> & { name: string };
+        layoutParams: Record<string, string | number> & { name: layoutName };
         layoutDebounce?: number;
         children: React.ReactElement[];
     }
