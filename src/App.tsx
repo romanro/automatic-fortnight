@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import MyComp from './MyCompo';
+import { Graph, Node, Edge } from 'cytoscape-react';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ position: "relative", height: 200, width: 500, border: '1px solid red' }}>
+      <Graph layoutParams={{ name: 'cose' }}>
+        <Node key="foo" id="foo"><MyComp /></Node>
+        <Node key="bar" id="bar"><MyComp /></Node>
+        <Node key="baz" id="baz"><MyComp /></Node>
+
+        <Edge key="foo_bar" id="foo_bar" source="foo" target="bar" />
+        <Edge key="bar_baz" id="bar_baz" source="bar" target="baz" />
+      </Graph>
     </div>
   );
 }
